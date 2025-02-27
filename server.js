@@ -14,3 +14,7 @@ app.use(cors());
 app.listen(PORT, () => {
     console.log(`Server listening on PORT: `, PORT);
 })
+
+app.get('/', (req,res) => {
+    res.send('codenicely-be')
+})
