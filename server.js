@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv';
 import connect_to_db from './config/connectToDB.js';
+import router from './api/invoices/routes.js';
 
 dotenv.config();
 const app = express();
@@ -20,10 +21,13 @@ connect_to_db()
     process.exit(1); // Exit the process if DB connection fails
   });
 
-app.listen(PORT, () => {
-    console.log(`Server listening on PORT: `, PORT);
-})
 
 app.get('/', (req,res) => {
     res.send('codenicely-be')
+})
+
+app.use('/api/invoices', router);
+
+app.listen(PORT, () => {
+    console.log(`Server listening on PORT: `, PORT);
 })
