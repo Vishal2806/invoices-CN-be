@@ -1,10 +1,10 @@
 import {Router} from "express";
 import { createInvoice, getAllInvoices, updateInvoiceById } from "./controllers.js";
 
-const router = Router();
+const invoiceRouter = Router();
 
-router.get('/all', getAllInvoices);
-router.post('/add', createInvoice);
-router.patch('/:id', updateInvoiceById);
+invoiceRouter.get('/all', getAllInvoices);
+invoiceRouter.post('/add', createInvoice);
+invoiceRouter.patch('/:id', updateInvoiceById);
 
-export default router;
+export default invoiceRouter;

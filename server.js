@@ -2,7 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv';
 import connect_to_db from './config/connectToDB.js';
-import router from './api/invoices/routes.js';
+import invoiceRouter from './api/invoices/routes.js';
+import authRouter from './api/user/routes.js';
 
 dotenv.config();
 const app = express();
@@ -26,7 +27,8 @@ app.get('/', (req,res) => {
     res.send('codenicely-be')
 })
 
-app.use('/api/invoices', router);
+app.use('/api/invoices', invoiceRouter);
+app.use('/api/user', authRouter);
 
 app.listen(PORT, () => {
     console.log(`Server listening on PORT: `, PORT);
