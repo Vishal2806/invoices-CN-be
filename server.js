@@ -7,7 +7,7 @@ import authRouter from './api/user/routes.js';
 
 dotenv.config();
 const app = express();
-const PORT = 3000
+const PORT = 8000
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
