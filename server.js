@@ -33,3 +33,10 @@ app.use('/api/user', authRouter);
 app.listen(PORT, () => {
     console.log(`Server listening on PORT: `, PORT);
 })
+setInterval(() => {
+  https.get('https://invoices-codenicely-be.onrender.com', (res) => {
+    console.log(`Server hit with status code: ${res.statusCode}`);
+  }).on('error', (e) => {
+    console.error(`Got error: ${e.message}`);
+  });
+}, 2 * 60 * 1000); 
